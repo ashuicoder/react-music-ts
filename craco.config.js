@@ -10,7 +10,8 @@ module.exports = {
       cmp: resolve('src/components'),
       api: resolve('src/api'),
       assets: resolve('src/assets'),
-      utils: resolve('src/utils')
+      utils: resolve('src/utils'),
+      views: resolve('src/views')
     }
   }
 }
