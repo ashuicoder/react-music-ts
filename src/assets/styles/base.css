@@ -1,8 +1,42 @@
 @import '~normalize.css';
+@import '~antd/dist/antd.css';
 @import './common.css';
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  user-select: none;
+}
+
+html,
+body {
+  font-size: 14px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  min-height: calc(100vh - 75px);
+}
+
+img {
+  border: none;
+  vertical-align: middle;
+}
+
+.wrap-v1 {
+  width: 1100px;
+  margin: 0 auto;
+}
+
+.wrap-v2 {
+  width: 980px;
+  margin: 0 auto;
+}
+
+.sprite-01 {
+  background: url('../images/sprite-01.png') no-repeat;
 }

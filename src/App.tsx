@@ -1,40 +1,26 @@
 import React, { memo, Suspense } from 'react'
-import { HashRouter, useRoutes, Navigate } from 'react-router-dom'
-import { renderRoutes } from 'react-router-config'
-const Discover = React.lazy(() => import('views/discover'))
-const NotFound = React.lazy(() => import('views/not-found'))
+import { HashRouter, useRoutes, Navigate, Routes, Route } from 'react-router-dom'
+
+import routes from '@/router'
+import AppHeader from './components/app-header'
+import AppFooter from './components/app-footer'
 
 const Router = memo(() => {
-  const element = useRoutes([
-    {
-      path: '/',
-      element: Navigate({
-        to: '/discover',
-        replace: true
-      })
-    },
-    {
-      path: '/discover',
-      element: Discover
-    },
-    {
-      path: '*',
-      element: NotFound
-    }
-  ])
+  const element = useRoutes(routes)
   return element
 })
 
 const App = memo(() => {
   return (
     <HashRouter>
-      <header>header</header>
-      <Suspense fallback={<div>loading</div>}>
-        <Router></Router>
-      </Suspense>
-      <footer>footer</footer>
+      <AppHeader></AppHeader>
+      <div className="container">
+        <Suspense fallback={<div>app loading</div>}>
+          <Router></Router>
+        </Suspense>
+      </div>
+      <AppFooter></AppFooter>
     </HashRouter>
   )
 })
-
 export default App
